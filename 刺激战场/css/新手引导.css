@@ -1,0 +1,1043 @@
+body{
+    width: 100%;
+    border-top: 3px solid #c8c8c8;
+}
+.inner{
+    width: 1200px;
+    margin: 0 auto;
+}
+.big-title{
+    width: 980px;
+    margin: auto;
+}
+.big-title ul{
+    width: 435px;
+}
+.big-title li{
+    float: left;
+}
+.big-title li .img1{
+    width: 205px;
+    height: 40px;
+}
+/*================big-title============*/
+.big-you{
+    width: 220px;
+    float: right;
+    position: relative;
+}
+.big-you h3{
+    font-weight: normal;
+    font-size: 10px;
+    float: right;
+    cursor: pointer;
+    line-height: 40px;
+}
+.big-you .h31{
+    margin-right: 15px;
+}
+.big-you .h31:hover,.big-you .h32:hover{
+    color:#ff6600;
+}
+.big-you .h31:hover .i2{
+    display: block;
+}
+/* =================big-title  结束===========*/
+.cbdh{
+    width: 146px;
+    position: fixed;
+    top: 255px;
+    right: 15px;
+    z-index: 99;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+.cbdh .img4{
+    display: block;
+    border: 5px solid #000;
+    width: 105px;
+    margin: auto;
+}
+.cbdh .nav-tu li{
+    text-align: center;
+    line-height: 43px;
+}
+.sprite{
+    margin: auto;
+    display: block;
+    vertical-align:middle;
+    width: 115px;
+    height: 43px;
+    background: url("../img/icon.png") no-repeat;
+}
+.icon-iphone{
+    background-position:-758px -260px;
+}
+.icon-androide{
+    background-position:-755px -318px;
+}
+.icon-xbxly{
+    background-position:-755px -372px;
+}
+/*=============侧边导航===============*/
+.game{
+    position: absolute;
+    right: 180px;
+    top: 40px;
+    width: 698px;
+    height: 456px;
+    font-size: 12px;
+    line-height: 1.5;
+    color: #999;
+    border: 1px solid #ccc;
+    background: #fff;
+    z-index: 100;
+    font-family: "\5b8b\4f53";
+    display: none;
+}
+.game::after{
+    content: '';
+    display: inline-block;
+    border-bottom: 10px solid #ccc;
+    border-left: 10px dashed transparent;
+    border-right: 10px dashed transparent;
+    position: absolute;
+    right: 1px;
+    top: -10px;
+}
+.game::before{
+    content: '';
+    display: inline-block;
+    border-bottom: 10px solid #fff;
+    border-left: 10px dashed transparent;
+    border-right: 10px dashed transparent;
+    position: absolute;
+    right: 1px;
+    top: -9px;
+    z-index: 5;
+}
+.game .game1{
+    float: left;
+    width: 212px;
+    height: 422px;
+    padding: 0 10px;
+    margin: 17px 0 8px;
+    border-right: 1px solid #e2e2e2;
+    margin-left: -1px;
+}
+.game .game3{
+    border-right: 1px solid transparent;
+}
+.game11{
+    border-bottom: 1px solid #e2e2e2;
+}
+.game11 h3{
+    display: inline-block;
+    color: #666;
+}
+.game11 a{
+    font-family: "\5b8b\4f53";
+    display: inline-block;
+    float: right;
+    color: #999;
+}
+.game11 i{
+    margin-top: -10px;
+    display: inline-block;
+}
+.game12 ul{
+    margin-top: 10px;
+}
+.game12 li{
+    z-index: 1;
+    position: relative;
+    cursor: pointer;
+    margin-bottom: 10px;
+}
+.game12 li .yxz{
+    width: 196px;
+}
+.game12 li div.now{
+    display:none;
+}
+.game12 li  .span-1{
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    line-height: 12px;
+    text-align: center;
+    font-size: 8px;
+    color: #fff;
+    border: 1px solid #ff4e00;
+    background: #ff4e00;
+}
+.game12 li p{
+    display: inline-block;
+    margin-left: 21px;
+}
+.game12 li div:last-of-type.yxt{
+    width:194px;
+    height: 84px;
+    display: none;
+}
+.game12 li div:last-of-type.now{
+    display: block;
+}
+.game12 li .yxt1{
+    width:194px;
+}
+.game12 li .yxt1 img{
+    width:194px;
+    height: 82px;
+    border: 1px solid #CCCCCC;
+}
+.game12 li .yxt1 .span-2{
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 10;
+}
+.game12 li .span-a{
+    background: #fff;
+    color: #ccc;
+    border: 1px solid #ccc;
+}
+.yinying{
+    width: 194px;
+    height: 28px;
+    background: rgba(0,0,0,.8);
+    position: absolute;
+    left: 1px;
+    bottom: 0px;
+}
+.yinying li{
+    float: left;
+    border-right: 1px solid #666;
+    position: relative;
+}
+.yinying li:last-of-type{
+    border-right-color: transparent;
+}
+.yinying li a{
+    color: #999;
+    display: inline-block;
+    width: 60px;
+    padding-left: 30px;
+    line-height: 28px;
+}
+sub{
+    display: inline-block;
+    vertical-align: middle;
+    background: url("../img/ost_rank_sp.png");
+    width: 13px;
+    height: 13px;
+    position: absolute;
+    left: 13px;
+    top: 7px;
+}
+.sub1{
+    background-position: 0 0;
+    z-index: 1;
+}
+.sub2{
+    background-position: 0 -17px;
+}
+.sub3{
+    background-position: -14px 0px;
+    z-index: 1;
+}
+.sub4{
+    background-position: -14px -17px;
+
+}
+.yinying li:hover .sub1,.yinying li:hover .sub3{
+    z-index: 0;
+}
+.yinying li:hover span{
+    color: #ff6600;
+    border-bottom: 1px solid #ff6600;
+}
+/*==================game 结束=============*/
+i{
+    vertical-align: middle;
+    display: block;
+    background: url("../img/ost-bg.png");
+    width: 11px;
+    height: 11px;
+}
+.i1{
+    background-position: -150px -134px;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    margin: auto;
+}
+.i2{
+    background-position: -170px -134px;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    margin: auto;
+    display: none;
+}
+.big-you .h32{
+    float: left;
+}
+.big-you .h32 img{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+}
+header{
+    margin-top: 42px;
+}
+.top-nav{
+    width: 100%;
+    height: 110px;
+    background: url("../img/bg-nav.png") repeat-x;
+    margin: 0 auto;
+    position: absolute;
+    top: 42px;
+    right: 0;
+    z-index: 3;
+}
+.top-nav .cont{
+    width: 1200px;
+    margin: 0 auto;
+}
+.top-title{
+    width: 353px;
+    height: 120px;
+    float: left;
+}
+.top-title a img{
+    margin: 10px 12px 0 0;
+    float: left;
+}
+.top-title h1{
+    display: inline-block;
+    font-size: 24px;
+    color: #ffb400;
+    line-height: 36px;
+    font-weight: bold;
+    float: left;
+    margin-top: 27px;
+}
+.top-title h1 span{
+    font-size: 14px;
+    color: #ffffff;
+    display: block;
+}
+/*=================top-title==============*/
+.nav{
+    margin-top: 34px;
+    width:  826px;
+    float: right;
+    position: relative;
+}
+.nav a,#player a{
+    font-size: 16px;
+    color: #ffffff;
+    text-align: center;
+    width: 110px;
+    height: 25px;
+    display: inline-block;
+    vertical-align: top;
+}
+.nav a:hover,.nav a:hover .span1{
+    color: #ffb400;
+}
+.nav a span{
+    font-size: 10px;
+    color: #515151;
+    font-weight: 600;
+    display: block;
+}
+.nav .nav_x{
+    font-size: 16px;
+    color: #ffffff;
+    text-align: center;
+    width: 110px;
+    height: 25px;
+    line-height: 21px;
+    display: inline-block;
+    vertical-align: top;
+    cursor: default;
+}
+.nav .nav_x:hover .sub-nav{
+    display: block;
+}
+.nav .nav_x:hover,.nav .nav_x:hover span,#player .span2:hover{
+    color: #ffb400;
+}
+.nav .nav_x span{
+    font-size: 10px;
+    color: #515151;
+    font-weight: 600;
+    display: block;
+}
+.sub-nav{
+    width: 113px;
+    box-sizing: border-box;
+    padding: 40px 5px 10px 5px;
+    text-align: center;
+    background: #000;
+    position: relative;
+    display: none;
+}
+.sub-nav a,#player li{
+    width: 100px;
+    line-height: 25px;
+    font-size: 14px;
+    text-align: center;
+}
+.sub-nav1 a{
+    width: 113px;
+}
+.sub-nav img{
+    position: absolute;
+    left: 5px;
+    top: 99px;
+}
+.sub-nav .img1{
+    top: 74px;
+}
+.sub-nav .img2{
+    top: 49px;
+    left: 3px;
+}
+#player .span2{
+    line-height: 20px;
+    font-size: 14px;
+    color: #fff;
+    font-weight: normal;
+    text-align: center;
+    display: inline-block;
+    vertical-align: top;
+}
+#player b{
+    width: 0;
+    height: 0;
+    border-top: 10px solid transparent;
+    border-left: 20px solid #fff;
+    border-bottom: 10px solid transparent;
+    position: absolute;
+    top: 52px;
+    right: -19px;
+}
+#player .b1{
+    top: 25px;
+}
+#player .b2{
+    top: 77px;
+}
+#player .b3{
+    top: 100px;
+}
+.nav .nav_x .play{
+    display: none;
+}
+.nav .nav_x:hover .play{
+    display: block;
+    z-index: 10;
+}
+#player p{
+    position: absolute;
+    right: 150px;
+    top: 50px;
+    z-index: 1;
+    display:none;
+}
+#player .now{
+    display: block;
+}
+#player img{
+    padding: 6px;
+    background: #fff;
+}
+#player .img3{
+    width: 132px;
+}
+/*====================header  结束==============*/
+/*=================article 开始=====================*/
+.section1{
+    height: 950px;
+    position: relative;
+    background: url('../xinshou/bg_01.jpg') no-repeat top center;
+}
+.section1 .logo1,.section1 .logo2{
+    position: absolute;
+    width: 407px;
+    height: 111px;
+    left: 38%;
+    top: 18%;
+}
+.section1 .logo2{
+    left: 90%;
+    width: 55px;
+    height: 70px;
+}
+.sp{
+    background: url("../xinshou/sprites.png") no-repeat;
+}
+.section1 .mouse{
+    position: absolute;
+    bottom: -50px;
+    left: 50%;
+    width: 149px;
+    height: 375px;
+    margin-left: -75px;
+    background-position: 0 0;
+}
+.section1 .mouse span{
+    position: absolute;
+    bottom: 162px;
+    left: 50%;
+    width: 15px;
+    height: 15px;
+    margin-left: -7px;
+    background-position: -149px -130px;
+    animation: move 1s linear 1s infinite;
+}
+@keyframes move {
+    from{bottom: 175px;opacity: 1}
+    to{bottom: 155px;opacity: 0}
+}
+.section1 .loat{
+    position: absolute;
+    bottom: -50px;
+    display: inline-block;
+    z-index: 10;
+}
+.section1 .float1{
+    left: 10%;
+    animation: sun 3.5s infinite;
+}
+.section1 .float2{
+    left: 12%;
+    animation: sun 4.5s infinite;
+}
+.section1 .float3{
+    left: 10%;
+    animation: sun 4s infinite;
+}
+.section1 .float4{
+    left: 25%;
+    animation: sun 4.5s infinite;
+}
+.section1 .float5{
+    left: 33%;
+    animation: sun 3.5s infinite;
+}
+.section1 .float6{
+    left: 40%;
+    animation: sun 4s infinite;
+}
+.section1 .float7{
+    left: 55%;
+    animation: sun 5s infinite;
+}
+.section1 .float8{
+    left: 66%;
+    animation: sun 4.5s infinite;
+}
+.section1 .float9{
+    left: 70%;
+    animation: sun 3s infinite;
+}
+.section1 .float10{
+    left: 80%;
+    animation: sun 3.5s linear infinite;
+}
+@keyframes sun {
+    0%{}
+    60%{bottom: 400px}
+    100%{bottom: 450px;opacity: 0}
+}
+/*=================section1 结束=====================*/
+/*=================srction2 开始=====================*/
+.section2{
+    height: 950px;
+    position: relative;
+    background: url('../xinshou/bg_02.jpg') no-repeat top center;
+}
+.section2 .clearfix{
+    width: 1094px;
+    height: 386px;
+    position: absolute;
+    top: 436px;
+    left: 50%;
+    margin-left: -547px;
+}
+.section2 .clearfix li{
+    width: 223px;
+    height: 62px;
+    position: absolute;
+    background: url('../xinshou/sec_oper_sp.png') no-repeat;
+    text-indent: -9999px;
+    cursor: pointer;
+}
+.section2 .clearfix li.bnt1{
+    top: 45px;
+    left: 0;
+    background-position: 0 -372px;
+}
+.section2 .clearfix li.bnt1:hover{
+    background-position: 0 -434px;
+}
+.section2 .clearfix li.bnt2{
+    top: 0;
+    right: 0;
+    background-position: 0 -248px;
+}
+.section2 .clearfix li.bnt2:hover{
+    background-position: 0 -310px;
+}
+.section2 .clearfix li.bnt3{
+    bottom: 0;
+    left: 0;
+    background-position: 0 -124px;
+}
+.section2 .clearfix li.bnt3:hover{
+    background-position: 0 -186px;
+}
+.section2 .clearfix li.bnt4{
+    bottom: 0;
+    right: 0;
+    background-position: 0 0;
+}
+.section2 .clearfix li.bnt4:hover{
+    background-position: 0 -62px;
+}
+.section2 .clearfix li span{
+    position: absolute;
+    right: 0;
+    bottom: 2px;
+    width: 20px;
+    height: 14px;
+    background-position: -174px -105px;
+    animation: bnt 1s linear infinite;
+}
+@keyframes bnt {
+    0%{}
+    40%{opacity: 0}
+    100%{opacity: 0}
+}
+/*=================srction2 结束=====================*/
+/*=================srction3 开始=====================*/
+.section3{
+    height: 950px;
+    position: relative;
+    background: url('../xinshou/bg_03.jpg') no-repeat top center;
+}
+.section3 .three{
+    position: relative;
+    left: 130px;
+    top: 68px;
+    width: 1200px;
+    height: 1100px;
+    overflow: hidden;
+}
+.section3 .three ul{
+    width: 872px;
+    height: 515px;
+    position: absolute;
+    top: 300px;
+    left: 50%;
+    margin-left: -436px;
+}
+.section3 .three ul li{
+    width: 120px;
+    height: 130px;
+    position: absolute;
+    cursor: pointer;
+}
+.section3 .three ul li.btn1{
+    top: 120px;
+    left: 0;
+}
+.section3 .three ul li.btn2{
+    top: 250px;
+    left: 336px;
+}
+.section3 .three ul li.btn3{
+    top: -70px;
+    right: -20px;
+}
+.section3 .three ul li.btn4{
+    top: 50px;
+    right: -150px;
+}
+.section3 .three ul li .pop{
+    display: block;
+    width: 105px;
+    height: 90px;
+    margin: 0 auto;
+    background: url('../xinshou/sp06.png') no-repeat;
+    background-position: -271px -172px;
+    animation: bounceInDown 1s linear infinite;
+}
+@keyframes bounceInDown {
+    from,
+    60%,
+    75%,
+    90%,
+    to {animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1); }
+    0% {}
+    60% {transform: translate3d(0, 25px, 0);}
+    75% {transform: translate3d(0, -10px, 0);}
+    90% {transform: translate3d(0, 5px, 0);}
+    to {transform: translate3d(0, 0, 0);}}
+.section3 .three ul li .btn{
+    display: block;
+    width: 100%;
+    text-align: center;
+    height: 30px;
+    line-height: 30px;
+    margin: -10px auto 0;
+    font-size: 20px;
+    color: #fff;
+}
+.section3 .three ol li{
+    width: 99px;
+    height: 100px;
+    overflow: hidden;
+    display: block;
+    position: absolute;
+    font-size: 20px;
+    color: #fff;
+    text-decoration: none;
+    line-height: 50px;
+    text-align: center;
+}
+.section3 .three ol li:hover sup{
+    background-position: -299px -1px;
+}
+.section3 .three ol .btn-place1{
+    top: 261px;
+    left: 300px;
+}
+.section3 .three ol .btn-place2{
+    top: 223px;
+    left: 560px;
+}
+.section3 .three ol .btn-place3{
+    top: 393px;
+    left: 334px;
+}
+.section3 .three ol .btn-place4{
+    top: 353px;
+    left: 614px;
+}
+.section3 .three ol .btn-place5{
+    top: 290px;
+    left: 820px;
+}
+.section3 .three ol .btn-place6{
+    top: 590px;
+    left: 740px;
+}
+.section3 .three ol li sup{
+    display: block;
+    width: 66px;
+    height: 66px;
+    position: relative;
+    z-index: 20;
+    margin: 0 auto;
+    background: url("../xinshou/sp06.png") no-repeat;
+    background-position: -180px 0;
+}
+.section3 .three ol li b{
+    position: absolute;
+    top: 13px;
+    left: 29px;
+    display: block;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, .6);
+}
+.section3 .three ol li .ico-gq1{
+    animation: click1 1.5s linear infinite;
+}
+.section3 .three ol li .ico-gq2{
+    animation: click2 1s linear infinite;
+}
+@keyframes click1{
+    0%{transform: scale(1);}
+    50%{transform:scale(1.15);opacity:0}
+    100%{transform:scale(1);}
+}
+@keyframes click2{
+    0%{transform: scale(1);}
+    50%{transform:scale(1.6);opacity: 0}
+    100%{transform:scale(1);}
+}
+.section3 .three ol li span{
+    display: block;
+    width: 100%;
+    margin-top: -10px;
+    font-size: 20px;
+}
+/*=================srction3 结束=====================*/
+/*=================srction4 开始=====================*/
+.section4{
+    height: 950px;
+    position: relative;
+    background: url('../xinshou/bg_04.jpg') no-repeat top center;
+}
+.section4 ul{
+    width: 1066px;
+    height: 500px;
+    position: absolute;
+    top: 353px;
+    left: 50%;
+    margin-left: -533px;
+}
+.section4 ul li{
+    width: 235px;
+    height: 440px;
+    position: absolute;
+    cursor: pointer;
+}
+.section4 ul li.btn1{
+    top: 0;
+    left: 0;
+}
+.section4 ul li.btn2{
+    top: 58px;
+    left: 278px;
+}
+.section4 ul li.btn3{
+    top: 0;
+    left: 554px;
+}
+.section4 ul li.btn4{
+    top: 58px;
+    right: 0;
+}
+.section4 ul li:hover img{
+    margin-top: -20px;
+}
+.section4 ul li div{
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: #000;
+    opacity: 0.6;
+}
+.section4 ul li:hover div{
+    opacity: 0;
+    top: -20px;
+}
+/*=================srction4 结束=====================*/
+/*=================srction5 开始=====================*/
+.section5{
+    height: 950px;
+    position: relative;
+    background: url('../xinshou/bg_05.jpg') no-repeat top center;
+}
+.section5 .content{
+    width: 1102px;
+    margin: 0 auto;
+    padding-top: 390px;
+}
+.section5 .content .left{
+    width: 553px;
+    height: 398px;
+    background: rgba(10,13,25,0.8);
+    overflow: hidden;
+}
+.section5 .content .left h2,.section5 .content .right h2{
+    line-height: 58px;
+    font-size: 24px;
+    color: #fff;
+    padding: 0 20px;
+    background: rgba(10,13,25,0.9);
+}
+.section5 .content .left h2 em,.section5 .content .right h2 em{
+    display: inline-block;
+    width: 3px;
+    height: 20px;
+    margin-right: 20px;
+    background: #f39802;
+}
+.section5 .content .left h2 span,.section5 .content .right h2 span{
+    width: 78px;
+    height: 14px;
+    background-position: -149px -91px;
+    text-indent: -9999px;
+    margin-top: 22px;
+}
+.section5 .content .left ul{
+    padding: 0 28px;
+}
+.section5 .content .left li{
+    height: 120px;
+    margin-top: 24px;
+    padding-bottom: 25px;
+    border-bottom: 1px solid #2b2f35;
+    cursor: pointer;
+}
+.section5 .content .left li img{
+    width: 160px;
+    height: 120px;
+}
+.section5 .content .left li .tit{
+    width: 320px;
+    font-size: 24px;
+    color: #c9d6f9;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    line-height: 56px;
+}
+.section5 .content .left li:hover .tit{
+    color: #f39802;
+}
+.section5 .content .left li .desc,.section5 .content .right .video_box{
+    width: 320px;
+    font-size: 20px;
+    color: #78839e;
+    overflow: hidden;
+}
+.section5 .content .right{
+    width: 516px;
+    height: 398px;
+    background: rgba(10,13,25,0.8);
+    overflow: hidden;
+    cursor: pointer;
+}
+.section5 .content .right .video_box{
+    display: block;
+    width: 462px;
+    margin: 24px auto 0;
+    position: relative;
+}
+.section5 .content .right .video_box img{
+    width: 462px;
+    height: 260px;
+}
+.section5 .content .right .video_box i{
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -60px 0 0 -45px;
+    width: 91px;
+    height: 91px;
+    background: url('../xinshou/sprites.png') -149px -0;
+}
+.section5 .content .right .video_box p.desc{
+    text-align: center;
+    line-height:30px;
+}
+.section5 .content .right .video_box:hover i{
+    transform: scale(1.1)
+}
+.section5 .content .right .video_box:hover p{
+    color: #f39802;
+}
+/*=================srction5 结束=====================*/
+/*=================article 结束=====================*/
+/*============footer开始==========*/
+footer{
+    position: relative;
+    width: 100%;
+    z-index: 2;
+    margin-top: -1px;
+}
+.foot-tu{
+    width: 100%;
+    background: url("../imgwuqi/bg_05.jpg");
+    position: relative;
+    z-index: 1;
+    height: 835px;
+}
+footer .inner{
+    border-top: 1px solid transparent;
+}
+.gwyx{
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 40px;
+    margin: auto;
+    width: 884px;
+    height: 111px;
+}
+.gwyx i{
+    content:'';
+    width: 378px;
+    height: 111px;
+    background: url('../xinshou/btn_sp.png') no-repeat;
+}
+.gwyx .gw{
+    background-position: 0 -222px;
+}
+.gwyx .gw:hover{
+    background-position: 0 -333px;
+}
+.gwyx .yx:hover{
+    background-position: 0 -111px;
+}
+.foot-top{
+    width: 1000px;
+    margin: 390px auto 0;
+}
+.foot-top li{
+    float: left;
+    width:178px;
+    margin: 0 35px;
+    box-sizing: border-box;
+    border: 1px solid #fff;
+}
+.foot-top li img{
+    margin:1px 0 0 1px ;
+}
+.foot-top li:hover{
+    border-color: #ffc600;
+}
+.foot-top li:hover p{
+    color: #ffc600;
+    cursor: pointer;
+}
+.foot-top li p{
+    height: 70px;
+    text-align: center;
+    line-height: 70px;
+    color: #fff;
+}
+.foot-box{
+    height: 100px;
+    margin-top: 720px;
+    position: relative;
+}
+.foot-prve{
+    float: left;
+    display: inline-block;
+    margin-top: 20px;
+}
+.foot-prve .img6{
+    margin-top: -10px;
+    text-indent: -999em;
+    overflow: hidden;
+    margin: -10px 0 0 10px;
+    position: relative;
+    top: -5px;
+    left: 0;
+}
+.foot-next{
+    float: right;
+    display: inline-block;
+    width: 700px;
+    font-size: 12px;
+    color: #fff;
+    font-family: '\5FAE\8F6F\96C5\9ED1';
+}

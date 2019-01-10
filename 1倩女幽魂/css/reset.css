@@ -1,0 +1,39 @@
+/*!*重置样式表 reset.css/normallize.css*!  两者区别*/
+ *{
+    margin: 0;
+    padding: 0;
+ }
+ ul,ol{
+     list-style-type: none;
+ }
+ a{
+     text-decoration: none;
+     color: #000;
+ }
+ input{
+     /*去掉边框*/
+     border: 0;
+     /*去掉表单显示颜色*/
+     outline: none;
+ }
+ /*在ie低级版本中,引入的图片 自带边框*/
+ img{
+     border: none;
+ }
+
+.clear:before,.clear:after{
+    content: '';
+    display: table;
+}
+.clear:after{
+    clear: both;
+}
+.clear{
+    zoom:1;
+}
+.fl{
+    float: left;
+}
+.fr{
+    float: right;
+}

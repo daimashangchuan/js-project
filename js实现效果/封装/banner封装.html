@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #banner{
+            width: 500px;
+            height: 500px;
+            margin: 100px auto;
+            position: relative;
+        }
+        ul{
+            list-style: none;
+
+        }
+        .dianji{
+            position: absolute;
+            bottom: 40px;
+            left: 35%;
+            z-index: 999;
+        }
+        .dianji li{
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: red;
+            float: left;
+            margin-left: 10px;
+        }
+        .dianji li.now{
+            background: #fff;
+        }
+        .tupian li{
+            float: left;
+            display: none;
+        }
+        .tupian li.now{
+            display: block;
+        }
+        .tupian li img{
+            width: 500px;
+            height: 500px;
+        }
+        #banner div:last-of-type.now{
+            display: none;
+        }
+        .z{
+            position: absolute;
+            top: 50%;
+            left: 0;
+            width: 30px;
+            height: 40px;
+            background: bisque;
+        }
+        .y{
+            position: absolute;
+            top: 50%;
+            right: 0;
+            width: 30px;
+            height: 40px;
+            background: bisque;
+        }
+    </style>
+</head>
+<body>
+<div id="banner">
+    <div class="dianji">
+        <ul>
+            <li class="now"></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div>
+    <div class="tupian">
+        <ul>
+            <li class="now"><img src="img/2.1.jpg" alt=""></li>
+            <li><img src="img/2.2.jpg" alt=""></li>
+            <li><img src="img/2.3.jpg" alt=""></li>
+            <li><img src="img/2.4.jpg" alt=""></li>
+            <li><img src="img/2.5.jpg" alt=""></li>
+        </ul>
+    </div>
+    <div class="zy now">
+        <div class="z"></div>
+        <div class="y"></div>
+    </div>
+</div>
+<script>
+    var     banner=document.getElementById('banner'),
+            tits1=document.querySelectorAll('.dianji li'),//找点击原点跳转
+            conts1= document.querySelectorAll('.tupian li'),//图片滚动
+            zy=document.querySelector('#banner div:last-of-type')//左右按钮与点击按钮
+            zuo=document.querySelector('.zy .z'),  //左按钮
+            you=document.querySelector('.zy .y'), //右按钮
+            index = 0,
+            timer = null;
+    console.log(banner);
+    function ban(banner,x,y,xxyy,xx,yy,index,timer) {
+        // 鼠标移上\移下banner时
+        // xxyy timer按钮出现\消失与图片animation效果出现\停止
+        banner.onmouseover = function () {
+            xxyy.classList.remove('now');
+            clearInterval(timer);
+        };
+        banner.onmouseout = function () {
+            xxyy.classList.add('now');
+            timer = setInterval(right, 1500);
+        };
+        timer = setInterval(right, 1500);
+        //  点击原点实现图片滚动   y   z
+        for (let i = 0; i < x.length; i++) {
+            x[i].onclick = function () {
+                for (var j = 0; j < y.length; j++) {
+                    y[j].classList.remove('now');
+                    x[j].classList.remove('now');
+                }
+                y[i].classList.add('now');
+                x[i].classList.add('now');
+            }
+        }
+        //点击右边实现图片滚动   yy
+        yy.onclick = right;
+        function right() {
+            index++;
+            if (index > y.length - 1) {
+                index = 0;
+            }
+            for (var j = 0; j < y.length; j++) {
+                x[j].classList.remove('now');
+                y[j].classList.remove('now');
+            }
+            x[index].classList.add('now');
+            y[index].classList.add('now');
+        }
+        //点击左边实现图片滚动    xx
+        xx.onclick = function () {
+            index--;
+            if (index < 0) {
+                index = y.length - 1;
+            }
+            for (var j = 0; j < y.length; j++) {
+                x[j].classList.remove('now');
+                y[j].classList.remove('now');
+            }
+            x[index].classList.add('now');
+            y[index].classList.add('now');
+        }
+    }
+    ban(banner,tits1,conts1,zy,zuo,you,index,timer)
+</script>
+</body>
+</html>

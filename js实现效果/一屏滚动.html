@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0
+        }
+        .screen-banner {
+            overflow: hidden;
+            position: relative;
+        }
+        .all-screen {
+            top: 0;
+            position: absolute;
+            transition: top 0.5s;
+        }
+        img{
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+<script>
+    window.onload = function () {
+        var oScreenBanner1 = document.getElementsByClassName("screen-banner")[0];
+        var oAllScreen1 = document.getElementsByClassName("all-screen")[0];
+        var arrScreen1 = document.getElementsByClassName("screen-box");
+        var screenW, screenH;
+        var page1 = 0;
+        qpgd(oScreenBanner1,oAllScreen1,arrScreen1,screenW, screenH,page1)
+        function qpgd(oScreenBanner,oAllScreen,arrScreen,screenW, screenH,page){
+            function resize(){
+                // 获取屏幕宽高
+                screenW = document.documentElement.clientWidth;  //获取宽
+                //  document.documentElement   获取的  body    client 全屏      clientWidth全屏宽
+                screenH = document.documentElement.clientHeight; // 获取高
+                // 设置宽高    总轮播图    大盒子    每一屏
+                oAllScreen.style.width = oScreenBanner.style.width = screenW + "px";
+                oScreenBanner.style.height = screenH + "px";
+                oAllScreen.style.height = screenH * arrScreen.length + "px";
+                for (var i = 0; i < arrScreen.length; i++) {
+                    arrScreen[i].style.width = screenW + "px";
+                    arrScreen[i].style.height = screenH + "px";
+                }
+                oAllScreen.style.top = -page * screenH + "px";
+            }
+            resize();
+            window.onresize = resize;   //  绑定窗口   窗口改变时候宽高改变
+            var isRunning = false; // 儅isRunning 為true  鼠標滾軸不管事
+                                    // 儅isRunning 為false  鼠標滾軸管事
+
+            //  兼容浏览器
+            function addEvent(ele, type, listener) {  //  元素    事件      事件驱动
+                if (ele.addEventListener) {
+                    ele.addEventListener(type, listener); //除ie
+                } else {
+                    ele.attachEvent("on" + type, listener);
+                }
+            }
+                // 滚轴事件函数
+            function mouseWheel(ev) {
+                var oEvent = window.event || ev;     //传送  参数
+                if (oEvent.detail) {
+                    if (oEvent.detail > 0) {  //向下滚动
+                        scrollDown()
+                    } else {          //向上滚动
+                        scrollUp()
+                    }
+                } else if (oEvent.wheelDelta) {
+                    if (oEvent.wheelDelta > 0) {
+                        scrollUp()
+                    } else {
+                        scrollDown()
+                    }
+                }
+            }
+            function scrollUp() {
+                if(!isRunning){
+                    isRunning = true;
+                    // 設置定時器  儅0.5秒之後  滾軸繼續可以使用
+                    setTimeout(function(){
+                        isRunning = false;
+                    },500);
+                    if (page > 0) {
+                        page--;
+                        oAllScreen.style.top = -page * screenH + "px";
+                    }
+                }
+            }
+            function scrollDown() {
+                if(!isRunning) {
+                    isRunning = true;
+                    setTimeout(function(){
+                        isRunning = false;
+                    },500);
+                    if (page < arrScreen.length - 1) {
+                        page++;
+                        oAllScreen.style.top = -page * screenH + "px";
+                    }
+                }
+            }
+            //    兼容问题
+            // chrome   ie      dom0
+            addEvent(window, "mousewheel", mouseWheel);
+            // ff               dom2
+            addEvent(window, "DOMMouseScroll", mouseWheel);
+        }
+    }
+</script>
+</head>
+<body>
+<div class="screen-banner">
+    <div class="all-screen">
+        <div class="screen-box screen-one" style="background: red"></div>
+        <div class="screen-box screen-two" style="background: red"></div>
+        <div class="screen-box screen-three" style="background: yellow"></div>
+        <div class="screen-box screen-four" style="background: blue"></div>
+        <div class="screen-box screen-five" style="background: gainsboro"></div>
+    </div>
+</div>
+</body>
+</html>

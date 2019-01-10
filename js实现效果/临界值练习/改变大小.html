@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>拖拽-改变大小</title>
+    <style>
+        #div1{
+            width: 200px;
+            height: 200px;
+            background: pink;
+            position: relative;
+        }
+        #div2{
+            width: 20px;
+            height: 20px;
+            background: red;
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            cursor: move;
+        }
+    </style>
+</head>
+<body>
+<div id="div1">
+    <div id="div2"></div>
+</div>
+<script>
+    var oDiv=document.getElementById("div2");
+    var oBox=document.getElementById("div1");
+    oDiv.onmousedown=function(ev){
+        var oEvent=ev||event;
+        var x=oEvent.clientX-oDiv.offsetLeft;
+        var y=oEvent.clientY-oDiv.offsetTop;
+        console.log(oEvent.clientX, oDiv.offsetLeft);
+        document.onmousemove=function(ev){
+            var oEvent=ev||event;
+            oBox.style.width=oEvent.clientX-x+20+"px";
+            oBox.style.height=oEvent.clientY-y+20+"px";
+        };
+    } ;
+    document.onmouseup=function(){
+        document.onmousemove=null;
+    }
+</script>
+</body>
+</html>

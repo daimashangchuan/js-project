@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #box {
+            width: 300px;
+            height: 300px;
+            margin: 132px;
+            background-color: pink;
+        }
+    </style>
+</head>
+<body>
+<div id="box"></div>
+<script>
+    var box = document.getElementById("box");
+    box.onmousemove = function (event) {
+        var event = event || window.event;
+        var pageX = event.pageX || event.clientX + document.documentElement.scrollLeft;
+        var pageY = event.pageY || event.clientY + document.documentElement.scrollTop;
+        var boxX = pageX - box.offsetLeft;
+        var boxY = pageY - box.offsetTop;
+        box.innerHTML = "X:" + boxX + "<br/>" + "Y:" + boxY;
+    };
+</script>
+</body>
+</html>

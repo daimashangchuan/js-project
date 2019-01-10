@@ -1,0 +1,29 @@
+[{
+  "id":1,  //  id 尽量不要重复
+  "image":"img/1.jpg",
+  "title":"HUAWEI Mate 10 4GB+64GB 全网通版（亮黑色）",
+  "time":"2017-08-12",
+  "price":456,
+  "hot":588
+},{
+  "id":2,
+  "image":"img/2.jpg",
+  "title":"HUAWEI Mate 10 4GB+64GB 全网通版",
+  "time":"2017-08-12",
+  "price":456,
+  "hot":588
+},{
+  "id":3,
+  "image":"img/3.jpg",
+  "title":" 全网通版（亮黑色）",
+  "time":"2017-08-12",
+  "price":456,
+  "hot":588
+},{
+  "id":4,
+  "image":"img/4.jpg",
+  "title":"HUAWEI Mate 10 4GB+64GB 全网通版（亮黑色）",
+  "time":"2017-08-12",
+  "price":456,
+  "hot":588
+}]

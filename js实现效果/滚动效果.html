@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+//    【效果】
+//    全屏滚动事件
+
+//  浏览器兼容
+//  事件兼容
+//  向上向下滚动 兼容
+   /* window.onmousewheel = function(){
+        alert(1);
+    }
+    window.onmousewheel = function(){
+        alert(2);
+    }*/
+//不兼容  ff
+
+/*事件监听
+ * ele   元素
+ * type  事件类型
+ * listener   监听事件驱动 （函数）
+ *
+ * ele.add  Event    Listener   添加事件监听
+ * */
+
+function  addEvent(ele,type,listener){
+    if(ele.addEventListener){
+        ele.addEventListener(type,listener)   //click     除了ie的
+    }else{
+        ele.attachEvent(type,listener)        //onclick   兼容ie
+    }
+}
+
+
+    //chrome        ie
+    addEvent(window,'mousewheel',mousewheel) //dom0
+    //  ff
+    addEvent(window,'DOMMouseScroll',mousewheel)  //dom2
+
+    /*function mousewheel(){
+        alert(1);
+    }*/
+
+    function mousewheel(ev){
+        var oEvent= window.event ||ev     //   window.event  兼容ie
+        //  ev  传参
+        /*
+        * 事件对象：存储了  此刻在浏览器中操作的所有信息
+        *
+        * 火狐浏览器   使用detail  属性判断方向
+        * 当   detail>0  向下滚动     <0    向上滚动
+        *
+        * chrome  使用wheelDelta  属性判断方向
+        * 当   wheelDelta<0  向下滚动     >0    向上滚动
+        * */
+        if(oEvent.detail){    //火狐
+            if(oEvent.detail>0){  // 下滚动
+                scrollDown()
+            }else{   //   向上
+                scrollUp()
+            }
+        }else if(oEvent.wheelDelta){// chrome ie
+            if(oEvent.wheelDelta>0){  // 上滚动
+                scrollUp()
+            }else{   //   向下
+                scrollDown()
+            }
+        }
+    }
+function scrollDown(){
+    alert(1);
+}
+function scrollUp(){
+    alert(2);
+}
+
+</script>
+</body>
+</html>

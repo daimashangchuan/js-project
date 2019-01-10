@@ -1,0 +1,62 @@
+li{
+    float: left;
+    list-style:none;
+}
+a{
+    text-decoration: none;
+}
+.jdqs70_click b{
+    width: 25px;
+    height: 25px;
+    background:rgba(255,255,255,.8);
+    position: absolute;
+    border-radius: 50%;
+}
+.jdqs71{
+    position: absolute;
+    color: #ff4e00;
+    text-align: center;
+    width: 25px;
+    height: 25px;
+    background: white;
+    border-radius: 50%;
+}
+.jdqs70_click b:nth-of-type(1){
+    animation: click1 1s linear infinite;
+}
+@keyframes click1 {
+    0% {
+        opacity: .8;
+        transform: scale(1);
+    }
+    100% {
+        opacity: 0;
+        transform: scale(2);
+    }
+}
+.jdqs70_click b:nth-of-type(2){
+    animation: click2 1s linear infinite;
+}
+@keyframes click2 {
+    0% {
+        opacity: .8;
+        transform: scale(1);
+    }
+    100% {
+        opacity: 0;
+        transform: scale(2.5);
+    }
+}
+.jdqs70_click b:nth-of-type(3){
+    animation: click3 1s linear infinite;
+}
+@keyframes click3 {
+    0% {
+        opacity: .8;
+        transform: scale(1);
+    }
+    100% {
+        opacity: 0;
+        transform: scale(3);
+    }
+}

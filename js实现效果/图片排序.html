@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding:0;
+        }
+        button{
+            text-align: center;
+            font-size: 26px;
+           /*; margin: 80px*/
+        }
+        .box{
+            width: 550px;
+            margin: 100px auto;
+        }
+        ul{
+            list-style: none;
+        }
+        li{
+            width: 80px;
+            height: 100px;
+            float: left;
+            background: red;
+            margin: 30px 30px 0 0;
+        }
+    </style>
+</head>
+<body>
+<div class="box">
+    <button id="butt">价格</button>
+    <ul id="list">
+        <li data-price="100">
+            <img src="" alt="">
+            <p>100</p>
+        </li>
+        <li data-price="300"><img src="" alt="">
+            <p>300</p>
+        </li>
+        <li data-price="50">
+            <img src="" alt="">
+            <p>50</p>
+        </li>
+        <li data-price="200">
+            <img src="" alt="">
+            <p>200</p>
+        </li>
+        <li data-price="1245">
+            <img src="" alt="">
+            <p>1245</p>
+        </li>
+        <li data-price="2654">
+            <img src="" alt="">
+            <p>2654</p>
+        </li>
+        <li data-price="13132">
+            <img src="" alt="">
+            <p>13132</p>
+        </li>
+        <li data-price="7894">
+            <img src="" alt="">
+            <p>7894</p>
+        </li>
+        <li data-price="456">
+            <img src="" alt="">
+            <p>456</p>
+        </li>
+        <li data-price="20">
+            <img src="" alt="">
+            <p>20</p>
+        </li>
+    </ul>
+</div>
+
+<script>
+    var button1 = document.getElementById('butt'),
+        ul=document.getElementById('list'),
+        li =ul.getElementsByTagName('li');
+    sun(button1,ul,li)
+    function sun(button,ul,li){
+        var flag=1;
+        button1.onclick= function(){
+            var arrli = Array.prototype.slice.call(li);
+            arrli.sort(function (a,b) {
+                var aprice=a.getAttribute('data-price'),  // getAttribute 查找属性 提取属性值
+                    bprice=b.getAttribute('data-price');
+                return (aprice-bprice)*flag;
+            });
+            for (var j = 0; j < arrli.length; j++) {
+                console.log(arrli[j]);
+                ul.appendChild(arrli[j]);   //  appendChild   使arrli[j]显示在html中排序
+            };
+            flag=-flag;
+        }
+    }
+</script>
+</body>
+</html>

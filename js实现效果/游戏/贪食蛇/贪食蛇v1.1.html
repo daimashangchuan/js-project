@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .screen{
+            width: 500px;
+            height: 500px;
+            position: fixed;
+            left: 0;
+            top:0;
+            right:0;
+            bottom:0;
+            margin: auto;
+            border: dashed 1px #000000;
+        }
+        .box{
+            position: absolute;
+            left: 100px;
+            top: 100px;
+        }
+        .box div{
+            background-color: #00a0ea;
+            position: absolute;
+            width: 50px;
+            height: 50px;
+        }
+        .box .w{
+
+            top: -50px;
+         }
+        .box .s{
+
+          }
+        .box .a{
+            left: -50px;
+        }
+        .box .d{
+            left: 50px;
+        }
+        .snake{
+            display: flex;
+            left: 100px;
+            top: 100px;
+        }
+        .snake .body{
+            width: 10px;
+            height: 10px;
+            margin: 2px;
+            background-color: #00a345;
+            position: absolute;
+            top: 100px;
+        }
+        .food{
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background-color: yellow;
+        }
+    </style>
+</head>
+<script>
+    window.onload = function(){
+        var food = document.createElement('div');
+        var up = document.getElementById('up'),
+        down = document.getElementById('down'),
+                left = document.getElementById('left'),
+        right = document.getElementById('right'),
+                arrbody = document.getElementsByClassName('body'),
+                cou = document.getElementById('coucols'),
+                 arrf = cou.getElementsByTagName('div');
+        var step = 40;
+        var time = null;
+        food.classList.add('food');
+        function addfood(){
+            var x = Math.floor(Math.random())
+        }
+        for (var i = 0; i < arrbody.length; i++) {
+            arrbody[i].style.left = 10*i+'px';
+            arrbody[i].style.top = 10*i+'px';
+
+        }
+        function move (){
+            if(!event.keyCode){
+                if (step ==38){
+                    up.style.backgroundColor = '#000';
+                    arrbody[0].style.top=arrbody[0].offsetTop-10 +'px';
+                    for (let i = arrbody.length-1; i >0; i--) {
+                        arrbody[i].style.left = arrbody[i-1].style.left;
+                        arrbody[i].style.top= arrbody[i-1].style.top;
+                    }
+                }else if (step ==37) {
+                    left.style.backgroundColor = '#000';
+                    arrbody[0].style.left = arrbody[0].offsetLeft - 10 + 'px';
+                    for (let i = arrbody.length - 1; i > 0; i--) {
+                        arrbody[i].style.left = arrbody[i - 1].style.left;
+                        arrbody[i].style.top = arrbody[i - 1].style.top;
+                    }
+                }else if (step ==39) {
+                    right.style.backgroundColor = '#000';
+                    arrbody[0].style.left = arrbody[0].offsetLeft + 10 + 'px';
+                    for (let i = arrbody.length - 1; i > 0; i--) {
+                        arrbody[i].style.left = arrbody[i - 1].style.left;
+                        arrbody[i].style.top = arrbody[i - 1].style.top;
+                    }
+                }else if (step ==40) {
+
+                    down.style.backgroundColor = '#000';
+                    arrbody[0].style.top = arrbody[0].offsetTop + 10 + 'px';
+                    for (let i = arrbody.length - 1; i > 0; i--) {
+                        arrbody[i].style.left = arrbody[i - 1].style.left;
+                        arrbody[i].style.top = arrbody[i - 1].style.top;
+                    }
+                }
+
+            }else {
+                step = parseInt(event.keyCode)
+            }
+
+        }
+        clearInterval(time);
+        time = setInterval(move,500);
+
+        document.onkeydown= function(){
+            clearInterval(time);
+            for (var j = 0; j < arrf.length; j++) {
+                arrf[j].style.backgroundColor = '#00a0ea'
+
+            }
+
+            move()
+        };
+
+                  time = setInterval(move,500);
+    }
+</script>
+<body>
+<div class="box" id="coucols">
+    <div class="w" id="up">上</div>
+    <div class="s" id="down">下</div>
+    <div class="a" id="left">左</div>
+    <div class="d" id="right">右</div>
+</div>
+<div class="screen">
+    <div class="snake">
+        <div class="body head"></div>
+        <div class="body"></div>
+        <div class="body"></div>
+        <div class="body"></div>
+        <div class="body"></div>
+        <div class="body"></div>
+        <div class="body"></div>
+        <div class="body"></div>
+        <div class="body"></div>
+    </div>
+</div>
+
+</body>
+</html>

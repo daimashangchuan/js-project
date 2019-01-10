@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        body {
+            width: 3000px;
+            height: 3000px;
+        }
+    </style>
+</head>
+<body>
+<input type="button" value="按钮" id="btn"/>
+<script>
+    var btn = document.getElementById("btn");
+    btn.onclick = function () {
+        //让窗体滚动到指定位置
+        window.scrollTo(1000, 1000);
+    };
+</script>
+</body>
+</html>

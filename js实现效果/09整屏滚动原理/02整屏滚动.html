@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul, ol {
+            list-style: none;
+            font-size: 30px;
+        }
+
+        html, body, ul, ul li {
+            width: 100%;
+            height: 100%;
+        }
+
+        ol {
+            position: fixed;
+            top: 50px;
+            left: 50px;
+        }
+
+        ol li {
+            width: 40px;
+            height: 50px;
+            border: 1px solid #000;
+            text-align: center;
+            line-height: 50px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+<ul>
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+    <li>4</li>
+    <li>5</li>
+</ul>
+<!--ol>li{$}*5-->
+<ol>
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+    <li>4</li>
+    <li>5</li>
+</ol>
+<script>
+    var timer = null;
+    //找人
+    var ul = document.getElementsByTagName("ul")[0];
+    var ulLis = ul.children;
+    var ol = document.getElementsByTagName("ol")[0];
+    var olLis = ol.children;
+
+    var arr = ["red", "orange", "yellow", "green", "blue"];
+    for (var i = 0; i < arr.length; i++) {
+        olLis[i].style.backgroundColor = arr[i];
+        ulLis[i].style.backgroundColor = arr[i];
+    }
+
+    //给所有的olLis注册点击事件
+    for (var i = 0; i < olLis.length; i++) {
+        olLis[i].index = i;
+        olLis[i].onclick = function () {
+            //窗体滚动到指定位置
+            //window.scrollTo(0, target);
+
+            //窗体渐渐地滚动到指定位置
+            clearInterval(timer);
+            var target = ulLis[this.index].offsetTop;
+            timer = setInterval(function () {
+                var leader = scroll().top;//当前页面被卷去的头部
+                var step = (target - leader) / 10;
+                step = step > 0 ? Math.ceil(step) : Math.floor(step);
+                leader = leader + step;
+                window.scrollTo(0, leader);
+                if (leader === target) {
+                    clearInterval(timer);
+                }
+            }, 15);
+        };
+    }
+    /**
+     * 封装一个scroll函数，将来调用的时候调用这个函数
+     * .top就可以获取被卷去的头部的高度
+     * .left就可以获取被卷去的左侧的宽度
+     * @returns {{top: (Number|number), left: (Number|number)}}
+     */
+    function scroll() {
+        return {
+            top: window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0,
+            left: window.pageXOffset || document.documentElement.scrollLeft || document.body.scrollLeft || 0
+        };
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function eat(){}
+    var json = {
+        'name':'宋哥哥',
+        'age':'18',
+        'tel':'123',
+        'eat':eat()
+    };
+    for (var k in json) {
+        console.log(k);
+//        console.log(json[k]);
+    }
+    console.log(json);
+
+    //    json  是用来交互   一种数据格式（对象）
+    //    json对象语法  普通对象升级 要求健必须用双引号
+    //    不能存放  函数  对象  实例
+
+    //   json  解析
+    console.log(JSON.stringify(json));  //    json 对象 转换 为字符串
+    console.log(JSON.parse(JSON.stringify(json)));  //       字符串 转换 json
+
+//  一获取数据
+    let productData = null;
+    //  原生js 利用ajax获取数据  4 步骤
+    //  1.创建XMLHttpRequest  实例
+    let xhr = new XMLHttpRequest();
+    //  2.打开与服务器的链接
+    xhr.open('get','product.json',false);  //  false  是同步请求
+    //  3.等待服务器返回数据
+    xhr.onreadystatechange = function(){
+        if (xhr.readyState == 4 && xhr.status == 200){
+            productData = JSON.parse(xhr.responseText);
+        }
+    };
+    //  4.向服务器发送数据
+    xhr.send();
+    console.log(productData);
+
+//   绑定数据
+    let str = '';
+    for (var i = 0; i < productData.length; i++) {
+        var {hot,img,price,time,title} = productData[i]
+        console.log(productData[i].hot);
+        console.log(hot);
+        str+=`<li data-time="${time}" data-price="${price}" data-ht="${hot}">
+                    <a href="javascript:;">
+                        <img src="${img}" alt="">
+                        <p>${title}</p>
+                         <span>￥${price}</span>
+                        <span>热度：${hot}</span>
+                        <span>上架时间：${time}</span>
+                    </a>
+                </li>`
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+<!--<script>
+    let pruductData=null;
+    //原生js   利用ajax获取数据   4步骤
+    //1.创建XMLHttpRequest实例
+    let  xhr=new XMLHttpRequest();
+    //2.打开与服务器的链接
+    xhr.open('get','product.json',false);   //请求方式    url地址   false表示同步请求
+    //3.等待服务器返回数据
+    xhr.onreadystatechange=function(){
+        if(xhr.readyState==4 && xhr.status==200){
+            pruducData=JSON.parse(xhr.responseText);
+        }
+    };
+    //4.向服务器发送数据
+    xhr.send();
+    console.log(pruductData);
+
+</script>-->
+
+
+</body>
+</html>

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>demo</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .box {
+            width: 350px;
+            height: 350px;
+            margin: 100px;
+            background-color: red;
+            border: 1px solid black;
+            position: relative;
+        }
+
+        .bbox {
+            display: none;
+            width: 400px;
+            height: 400px;
+            position: absolute;
+            top: 0;
+            left: 360px;
+            border: 1px solid black;
+            overflow: hidden;
+        }
+
+        .layer {
+            width: 175px;
+            height: 175px;
+            background: rgba(255, 255, 0, 0.4);
+            position: absolute;
+            top: 0;
+            left: 0;
+            cursor: move;
+            display: none;
+        }
+
+        .xbox {
+            position: relative;
+        }
+
+        .box img {
+            vertical-align: top;
+        }
+
+        .bbox img {
+            position: absolute;
+        }
+
+    </style>
+</head>
+<body>
+<div class="box" id="box">
+    <div class="xbox" id="xbox">
+        <img src="images/001.jpg" width="350" alt=""/>
+        <div class="layer" id="layer"></div>
+    </div>
+    <div class="bbox" id="bbox">
+        <img src="images/0001.jpg" width="800" alt=""/>
+    </div>
+</div>
+<script>
+    var zbox = document.getElementById("box");
+    var xbox = document.getElementById("xbox");//小盒子
+    var bbox = document.getElementById("bbox");//大盒子
+    var lay = document.getElementById("layer");//小盒子中的遮罩层
+    var Img = document.querySelector(".bbox img");//大盒子中的图片
+    //    鼠标移入移出显示隐藏
+    xbox.onmouseover = function () {
+        bbox.style.display = "block";
+        lay.style.display = "block";
+    };
+    xbox.onmouseout = function () {
+        bbox.style.display = "none";
+        lay.style.display = "none";
+    }
+
+    //    遮罩层跟随鼠标移动
+    xbox.onmousemove = function (event) {
+        var event = event || window.event;
+        var pageX = event.pageX || event.clientX + document.documentElement.offsetLeft;//浏览器中X轴坐标
+        var pageY = event.pageY || event.clientY + document.documentElement.offsetTop;//浏览器中Y轴坐标
+        var boxX=pageX-zbox.offsetLeft,
+            boxY=pageY-zbox.offsetTop;
+        //用浏览器XY坐标减去盒子距离left0和top0的位置就是鼠标在盒子中坐标
+
+        var layX=boxX-lay.offsetWidth/2;
+        var layY=boxY-lay.offsetHeight/2;
+        //因为要通过鼠标移动实施获得遮罩层的位置
+        //鼠标应该在遮罩层的中间，所以用鼠标在盒子的坐标减去遮罩层宽高的一半
+        //就是遮罩层应该在盒子中的left和top值
+
+        //控制最小
+        if(layX<0){
+            layX=0;
+        }
+        if(layY<0){
+            layY=0;
+            //遮罩层的位置不能超出盒子，所以不能小于0，小于0的时候为0
+        }
+        //控制最大
+        if(layX>xbox.offsetWidth-lay.offsetWidth){
+            layX=xbox.offsetWidth-lay.offsetWidth
+        }
+        if(layY>xbox.offsetHeight-lay.offsetHeight){
+            layY=xbox.offsetHeight-lay.offsetHeight
+        }
+        //遮罩层的位置不能超出盒子，所以不能大于大盒子-遮罩层的宽高，大于的时候为大盒子-遮罩层的宽高
+
+        lay.style.left=layX+"px";
+        lay.style.top=layY+"px";
+        //把遮罩层实时位置赋给遮罩层
+
+        //rate是大盒子的宽/遮罩层的宽，也就是一个倍数，
+        var rate=bbox.offsetWidth/lay.offsetWidth;
+
+        //设置实时移动遮罩层，大图移动的位置
+        Img.style.left=-rate*layX+"px";
+        Img.style.top=-rate*layY+"px";
+    }
+</script>
+</body>
+</html>

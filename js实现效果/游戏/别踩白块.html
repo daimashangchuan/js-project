@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>别踩白块</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .box {
+            width: 502px;
+            height: 600px;
+            margin: 20px auto;
+            overflow: hidden;
+            position: relative;
+            border: 1px solid black;
+        }
+
+        .k {
+            width: 125px;
+            height: 150px;
+            border: 1px solid black;
+            float: left;
+            box-sizing: border-box;
+        }
+
+        .black_k {
+            width: 125px;
+            height: 150px;
+            border: 1px solid black;
+            background-color: black;
+            float: left;
+            box-sizing: border-box;
+        }
+
+        /*   .inner::before {
+               display: block;
+               content: "";
+               width: 500px;
+               height: 1px;
+               background-color: black;
+               position: absolute;
+               top: 350px;
+           }*/
+    </style>
+</head>
+<body>
+<div class="box" id="box">
+    <div id="ab" style="position: absolute;top: 0px;">
+    </div>
+</div>
+<script>
+    var loc = 0;//黑块落地失败判定
+    var count = 0;//初始化击中黑块总数
+    var locArr = [];//初始化游戏板上黑块位置的
+    var order = (function () {
+        var ord = "s";
+        return function () {
+            if (ord == 'aa') {
+                ord = 'ab'
+            }
+            else {
+                ord = 'aa'
+            }
+            return ord;
+        }
+    })();
+
+
+    function judge() {
+        var num = this.id.substr(3);//获取元素的ID号
+        if (num != locArr.shift()) {  //与位置数组pop出的对比
+            clearTimeout(timer);
+            alert("你的得分为：" + count*10 + "分！");
+            return;  //失败清除定时器，结算分数。
+        } else {
+            loc -= 150;
+            this.style.background = "red";
+            count += 1;//成功将落地标志加方格的高度，将方格背景色改变一下，击中数+1
+        }
+        if (count != 0 && count % 15 == 0) {
+            clearTimeout(timer);
+            newtimer = 50 - count / 15 * 5;
+            timer = setInterval(fall, newtimer);
+        }//每击中15个后将速度加快一点，这个式子可自行定义。
+    }
+
+
+    function generateRand() {
+        var numArr = [];
+        for (var j = 0; j < 4; j++) {
+            var num = Math.floor(Math.random() * 4) + j * 4;
+            numArr.push(num);
+        }
+        return numArr;
+    }
+
+
+    function drawBoard() {
+        var temArr = generateRand();//这里应用一个临时的位置数组，为了防止两块游戏板之间的位置冲突。
+        locArr = temArr.concat(locArr);//将临时数组相连到全局位置数组中
+        var board = document.createElement('div');
+        board.setAttribute('id', order());
+        board.style.position = "absolute";
+        board.style.top = '600px';
+        for (var i = 0; i < 16; i++) {
+            var ele = document.createElement('div');
+            ele.setAttribute('id', "ele" + i);
+            if (temArr.indexOf(i) > -1) {   //判断当前创建的小方块的ID序列是否属于临时位置数组
+                ele.setAttribute('class', 'black_k')
+            } else {
+                ele.setAttribute('class', 'k');
+            }
+            ele.addEventListener('click', judge, false); //给每一个小方格添加点击判定函数judge
+            board.appendChild(ele);
+        }
+        var gameZone = document.getElementById('box');
+        gameZone.appendChild(board);
+    }
+
+
+    function fall() {
+        var gameZone = document.getElementById('box');
+        var boarda = document.getElementById('aa');//因为ab两个游戏板全局一直存在，所以不需要定义找不到时的逻辑
+        var anowtop = boarda.offsetTop;//因为获取到的top位置是xxxpx类型，所以用一个parseInt()将其转换为整数便于处理。
+        if (anowtop == -595) {  //这里数目为595而不是600是因为在这一帧删除后，下一帧正好600px，刚好使两块游戏板衔接完好。
+            gameZone.removeChild(boarda);
+            drawBoard();//删除游戏区域的游戏板，并在最上方新生成一个。
+        }
+        anowtop -= 5;
+        boarda.style.top = anowtop + "px";
+        var boardb = document.getElementById('ab');
+        var bnowtop = parseInt(boardb.style.top);
+        if (bnowtop == -595) {
+            gameZone.removeChild(boardb);
+            drawBoard();
+        }
+        bnowtop -= 5;
+        boardb.style.top = bnowtop + "px";
+        loc += 5;
+        if (loc == 600) {
+            clearTimeout(timer);
+            alert("你的得分为：" + count*10 + "分！");
+            return;
+        } //每一帧将落地判定减5，当落地判定为0时表示落地，结算分数。
+    }
+   window.onload=function(){
+       drawBoard();
+       fall();
+       timer = setInterval('fall()', 20);
+   }
+</script>
+</body>
+</html>
